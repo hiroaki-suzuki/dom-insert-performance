@@ -10,6 +10,14 @@ $(() => {
     $('#pattern3').on('click', () => {
         exec(pattern3);
     });
+
+    $('#pattern4').on('click', () => {
+        exec(pattern4);
+    });
+
+    $('#pattern8').on('click', () => {
+        exec(pattern8);
+    });
 });
 
 let count = 0;
@@ -68,9 +76,35 @@ function pattern2() {
 }
 
 /**
- * 文字列をため込んで、最後にドーンと追加する
+ * 文字列をため込んで、100行ずつにドーンと追加する
  */
 function pattern3() {
+    const $root = getRootElem();
+    let html = '';
+    for (let i = 1; i < count; i++) {
+        html += '<tr>';
+        html += '<td>item1</td>';
+        html += '<td>item2</td>';
+        html += '<td>item3</td>';
+        html += '<td>item4</td>';
+        html += '<td>item5</td>';
+        html += '<td>item6</td>';
+        html += '</tr>';
+
+        if ((i % 100) === 0) {
+            $root.append(html);
+            html = '';
+        }
+    }
+    if (html.length > 0) {
+        $root.append(html);
+    }
+}
+
+/**
+ * 文字列をため込んで、最後にドーンと追加する
+ */
+function pattern4() {
     const $root = getRootElem();
     let html = '';
     for (let i = 1; i < count; i++) {
